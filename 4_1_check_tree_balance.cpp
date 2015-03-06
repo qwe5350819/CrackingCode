@@ -33,17 +33,8 @@ void Node::setKey(int k){
 }
 
 bool checkNeibor(Node n){
-	ofstream myfile;
-	myfile.open ("example.txt");
-	myfile << "checkNeibor()\n";
-	myfile.close();
 	
 	if(n.faternode!=NULL){
-		ofstream myfile;
-		myfile.open ("example.txt");
-		myfile << "this node is a bottom leaf\n";
-		myfile.close();
-		
 		
 		if(n.faternode->leafl!=NULL
 		&&n.faternode->leafr!=NULL){
@@ -61,31 +52,18 @@ bool checkNeibor(Node n){
 	
 	}
 	
-	cout<<"this node is a root"<<endl;
 	return false;
 }
 
 bool checkBalance(Node *tree_root){
 	int max =0 , min = 0;
 	
-	ofstream myfile;
-	myfile.open ("example.txt",ios::app);
-	myfile << "checkBalance\n";
-	myfile.close();
-	
 	int dist=0;
 	while(true){
 		step:
-		myfile.open ("example.txt",ios::app);
-		myfile << "is it bottom?\n";
-		myfile.close();
 		
 		//bottom leaf
 		if(tree_root->leafl==NULL && tree_root->leafr==NULL){
-		myfile.open ("example.txt",ios::app);
-		myfile << "hit bottom\n";
-		myfile.close();				
-			
 			
 			if(max<dist)
 			max = dist;
@@ -104,48 +82,25 @@ bool checkBalance(Node *tree_root){
 		if(tree_root->leafl!=NULL&&tree_root->leafl->getKey()!=-1){
 			tree_root = tree_root->leafl;
 			dist++;
-			myfile.open ("example.txt",ios::app);
-			myfile << tree_root->getKey()<<"left\n";
-			myfile.close();			
 			
 			goto step;
 		}
 		
 		
-		myfile.open ("example.txt",ios::app);
-		myfile << "?goin right\n";
-		myfile.close();		
 		if (tree_root->leafr!=NULL&&tree_root->leafr->getKey()!=-1){
 			tree_root = tree_root->leafr;
 			dist++;
-			
-			myfile.open ("example.txt",ios::app);
-			myfile << "right\n";
-			myfile.close();				
 			goto step;
 		}
 		
 		
-//		myfile.open ("example.txt",ios::app);
-//		myfile << "?goin up\n";
-//		myfile.close();		
 		if (tree_root->faternode!=NULL&&tree_root->faternode->getKey()!=-1){
-			myfile.open ("example.txt",ios::app);
 			tree_root->setKey(-1);
-			
-			myfile << "up... current key change to "<<tree_root->getKey();
 			tree_root = tree_root->faternode;
 			dist--;
 			
-			myfile << "up\n";
-			myfile.close();				
-			
 			goto step;
 		}
-		
-		myfile.open ("example.txt",ios::app);
-		myfile << "\n\n\nnew round\n";
-		myfile.close();
 		
 		if(tree_root->faternode==NULL){
 			break;
@@ -153,7 +108,6 @@ bool checkBalance(Node *tree_root){
 		
 	}
 	
-	cout<<"max  is " << max << "   min is "<< min <<endl;
 	if(max-min>1){
 		return false;
 	}
@@ -163,12 +117,6 @@ bool checkBalance(Node *tree_root){
 
 
 int main(){
-	ofstream myfile;
-	myfile.open ("example.txt");
-	myfile << "main()\n";
-		myfile.close();
-
-	
 	//balanced tree	
 	Node root(0) ;
 	Node l(1) ;
