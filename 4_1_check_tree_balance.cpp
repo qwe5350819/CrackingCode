@@ -56,7 +56,7 @@ bool checkNeibor(Node n){
 }
 
 bool checkBalance(Node *tree_root){
-	int max =0 , min = 0;
+	int max =0 , min =99;
 	
 	int dist=0;
 	while(true){
