@@ -2,6 +2,10 @@
 #include <fstream>
 using namespace std;
 
+/*
+Implement a function to check if a tree is balanced. For the purposes of this question, a balanced tree is defined to be a tree such that no two leaf nodes differ in distance from the root by more than one.
+*/
+
 class Node{
 	public :
 		Node* leafl;
@@ -15,14 +19,12 @@ class Node{
 		int key;//=-1;
 };
 
-
 Node::Node(int intKey){
 	key=intKey;
 	leafl = NULL;
 	leafr = NULL;
 	faternode = NULL;
 }
-
 
 int Node::getKey(){
 	return key;
@@ -32,13 +34,11 @@ void Node::setKey(int k){
 	key = k;
 }
 
-bool checkNeibor(Node n){
-	
+//return true if there's a siblings
+bool checkNeibor(Node n){	
 	if(n.faternode!=NULL){
-		
 		if(n.faternode->leafl!=NULL
 		&&n.faternode->leafr!=NULL){
-			
 			if(n.faternode->leafr!=&n){
 				if(n.faternode->leafr->getKey()!=-1)
 					return true;
@@ -49,22 +49,20 @@ bool checkNeibor(Node n){
 				return false;
 			}
 		}
-	
 	}
 	
 	return false;
 }
 
 bool checkBalance(Node *tree_root){
-	int max =0 , min =99;
+	int max =0 , min =2147483637;
 	
 	int dist=0;
 	while(true){
 		step:
 		
-		//bottom leaf
+		//if this is bottom leaf, record distant and set this node traversed(key=-1)
 		if(tree_root->leafl==NULL && tree_root->leafr==NULL){
-			
 			if(max<dist)
 			max = dist;
 			if(min>dist)
@@ -77,23 +75,23 @@ bool checkBalance(Node *tree_root){
 					
 			
 			
+		//traverse the tree with Post-order traversal
 		
-		//¥ª¥k¤W
+		//if this node has a non-traversed left leaf, go to left leaf
 		if(tree_root->leafl!=NULL&&tree_root->leafl->getKey()!=-1){
 			tree_root = tree_root->leafl;
 			dist++;
-			
 			goto step;
 		}
 		
-		
+		//if this node has a non-traversed right leaf, go to right leaf
 		if (tree_root->leafr!=NULL&&tree_root->leafr->getKey()!=-1){
 			tree_root = tree_root->leafr;
 			dist++;
 			goto step;
 		}
 		
-		
+		//if this node has no non-traversed leafs, go up
 		if (tree_root->faternode!=NULL&&tree_root->faternode->getKey()!=-1){
 			tree_root->setKey(-1);
 			tree_root = tree_root->faternode;
@@ -102,6 +100,7 @@ bool checkBalance(Node *tree_root){
 			goto step;
 		}
 		
+		//when cursor reaches the root, end the traversal
 		if(tree_root->faternode==NULL){
 			break;
 		}

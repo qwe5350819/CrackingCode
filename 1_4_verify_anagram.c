@@ -2,9 +2,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <windows.h>
+/*
+Write a method to decide if two strings are anagrams or not.
+*/
+// assuem the char is ascii code 
+//use a table int[256] to record which ascii has been used for how many times
 
-//ctrl+b for compile
-//ctrl+shift+b for exe
 int main()
 {
 	int charcount[256]={0};

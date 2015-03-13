@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <windows.h>
 #include <stdlib.h>
-//ctrl+b for compile
-//ctrl+shift+b for exe
+/*Given a circular linked list, implement an algorithm which returns node at the beginning of the loop. DEFINITION Circular linked list: A (corrupt) linked list in which a node’s next pointer points to an earlier node, so as to make a loop in the linked list. EXAMPLE input: A -> B -> C -> D -> E -> C (the same C as earlier) output: C
+*/
 
 struct node 
 {
@@ -12,7 +12,6 @@ struct node
     int val;
     struct node * next;
 };
-// typedef struct node node_t;
 
 void print_list(node * head) 
 {
@@ -39,18 +38,18 @@ void free_list(node * head)
     free(remove_prev);
 }
 
-
-
-//add to the end of linked list, return the last element
+//add to the end of linked list
+//return the last node
 struct node * push(node * head, int val) 
 {
+//find the last node
     node * current = head;
     while (current->next != NULL) 
     {
         current = current->next;
     }
 
-    /* now we can add a new variable */
+//add a node to the last node
     current->next = (struct node *)malloc(sizeof(node));
     current->next->val = val;
     current->next->next = NULL;
@@ -58,6 +57,7 @@ struct node * push(node * head, int val)
     return current->next;
 }
 
+//trace from the beginning of this list to the last, the fist node which is traversed twice is the beginning of the loop
 int findCircle(node * linkedlist) 
 {
     node * current = linkedlist;

@@ -4,6 +4,11 @@
 
 using namespace std;
 
+/*
+Given a directed graph, design an algorithm to find out whether there is a route between two nodes.
+*/
+
+//if a->b exist, set graph[a][b]=true
 void setatob(int a , int b , bool graph[50][50]){
 	graph[a][b]=true;
 }
@@ -25,11 +30,10 @@ void printTable(bool g[50][50]){
 	
 }
 
-
+//use footprint f[50][50] to record traversed path
 bool isAconnectB(int a , int b , bool g[50][50], bool f[50][50]){
 	for(int i = 0 ; i < 50 ; i++){
 		if(g[a][b]==true){
-			cout<<a<<"->"<<b<<" is good"<<endl;
 			return true;
 		}else if(g[a][i]==true) {
 			isAconnectB[i][b];
@@ -43,10 +47,12 @@ int main(){
 	bool graph[50][50];
 	bool footprint[50][50];
 	
+	//generate random graph
 	for(int i = 0 ; i < 500 ; i++){
 		setatob(rand()%50,rand()%50,graph);
 	}
 	
+	//generate footprint
 	for(int i = 0 ; i < 50 ; i++){
 		for(int j = 0 ; j < 50 ; j++)	{
 			footprint[i][j]=false;
@@ -62,5 +68,4 @@ int main(){
 	}
 	
 	printTable(graph);
-	
 }

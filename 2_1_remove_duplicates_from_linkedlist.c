@@ -16,7 +16,6 @@ struct node {
     int val;
     struct node * next;
 };
-// typedef struct node node_t;
 
 
 void print_list(node * head) {
@@ -73,6 +72,7 @@ void remove_duplicated(node * head) {
         //remove duplicated element 
         while(current->next != NULL)//check list except the last one
         {
+		//remove node
             if(current->val == val)
             {
                 prev->next = current->next;
@@ -80,7 +80,7 @@ void remove_duplicated(node * head) {
                 free(current);
                 current = prev->next;
             }else
-            {
+            {//move to next node
                 prev = current;
                 current = current->next;
             }

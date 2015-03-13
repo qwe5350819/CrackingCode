@@ -1,9 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
-//ctrl+b for compile
-//ctrl+shift+b for exe
-// Describe how you could use a single array to implement three stacks.
+/*How would you design a stack which, in addition to push and pop, also has a function min which returns the minimum element? Push, pop and min should all operate in O(1) time.*/
 
 int * createArray(int iSize)
 {
@@ -26,6 +24,7 @@ void print1DArray(int *Arr,int iSize)
     printf("\n");
 }
 
+//push the content value to the top of stacks
 void push(int* myStacks ,int iSize , int content)
 {
     int i=0;
@@ -37,6 +36,7 @@ void push(int* myStacks ,int iSize , int content)
     myStacks[i]=content;
 }
 
+//return the min value of mystack
 int min(int * myStacks,int iSize)
 {
     int iMin=myStacks[0];
@@ -48,6 +48,7 @@ int min(int * myStacks,int iSize)
     return iMin;
 }
 
+//pop the element on the top of stack 
 void pop(int* myStacks , int iSize )
 {
     int i;

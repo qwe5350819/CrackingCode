@@ -3,8 +3,7 @@
 #include <stdio.h>
 #include <windows.h>
 #include <stdlib.h>
-//ctrl+b for compile
-//ctrl+shift+b for exe
+/*Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column is set to 0.*/
 
 void set_row_colume_1(int **Matrix , int ix, int iy , int iCoordinateX, int iCooredinateY);
 int** dynamicINTMatrixMN(int M,int N);
@@ -12,6 +11,7 @@ void assignMatrixRand(int range,int** Matrix ,int x ,int y);
 void printMatrix(int** Matrix,int iM ,int iN);
 void freeDynamicMatrix(int** Matrix , int iM , int iN);
 void assignMatrix0(int** Matrix, int x ,int y);
+
 int main()
 {
     int iM=5,iN=10;

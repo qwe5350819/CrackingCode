@@ -3,8 +3,9 @@
 #include <stdio.h>
 #include <windows.h>
 #include <stdlib.h>
-//ctrl+b for compile
-//ctrl+shift+b for exe
+/*
+Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
+*/
 
 int main()
 {
@@ -40,7 +41,7 @@ int main()
     QueryPerformanceFrequency(&ts);
     QueryPerformanceCounter(&t1);
 
-    //rotate
+    //rotate form out layer
     for(int x = 0 ; x < iN-x ; x++)
     {
         for(int y = x ; y < iN-1-x ; y++)

@@ -1,9 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
-//ctrl+b for compile
-//ctrl+shift+b for exe
-// Describe how you could use a single array to implement three stacks.
+/*Describe how you could use a single array to implement three stacks.*/
 
 int ** createArray(int m , int n)
 {

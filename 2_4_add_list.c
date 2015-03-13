@@ -3,8 +3,7 @@
 #include <stdio.h>
 #include <windows.h>
 #include <stdlib.h>
-//ctrl+b for compile
-//ctrl+shift+b for exe
+/*You have two numbers represented by a linked list, where each node contains a single digit. The digits are stored in reverse order, such that the 1’s digit is at the head of the list. Write a function that adds the two numbers and returns the sum as a linked list. EXAMPLE Input: (3 -> 1 -> 5) + (5 -> 9 -> 2) Output: 8 -> 0 -> 8*/
 
 struct node 
 {
@@ -55,6 +54,7 @@ struct node * push(node * head, int val)
     return current->next;
 }
 
+//assume two list has same length, add each element until the end
 struct node * addlist(node * add1 , node * add2) 
 {
     node * current1 = add1;

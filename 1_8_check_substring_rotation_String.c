@@ -3,8 +3,9 @@
 #include <stdio.h>
 #include <windows.h>
 #include <stdlib.h>
-//ctrl+b for compile
-//ctrl+shift+b for exe
+/*
+Assume you have a method isSubstring which checks if one word is a substring of another. Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring (i.e., “waterbottle” is a rotation of “erbottlewat”).
+*/
 
 bool isSubstring(char str1[20], char str2[20]);
 int main()
@@ -57,6 +58,7 @@ int main()
 
 }
 
+//compare the char one by one
 bool isSubstring(char str1[20], char sub[20])
 {
     bool find = false;

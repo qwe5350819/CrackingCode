@@ -2,8 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <windows.h>
-//ctrl+b for compile
-//ctrl+shift+b for exe
+/*Write a method to replace all spaces in a string with ‘%20’.*/
 
 void shiftstringright(char chars[1]);
 int main()

@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
+/*Implement an algorithm to determine if a string has all unique characters. What if you can not use additional data structures?*/
 
 int main()
 {

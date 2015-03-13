@@ -15,7 +15,6 @@ struct node {
     int val;
     struct node * next;
 };
-// typedef struct node node_t;
 
 
 void print_list(node * head) {

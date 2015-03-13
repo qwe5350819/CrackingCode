@@ -3,11 +3,8 @@
 #include <stdio.h>
 #include <windows.h>
 #include <stdlib.h>
-//ctrl+b for compile
-//ctrl+shift+b for exe
 /*
-Implement an algorithm to find the nth to last element 
-of a singly linked list.
+Implement an algorithm to delete a node in the middle of a single linked list, given only access to that node. EXAMPLE Input: the node ‘c’ from the linked list a->b->c->d->e Result: nothing is returned, but the new linked list looks like a->b->d->e
 */
 
 
@@ -15,7 +12,6 @@ struct node {
     int val;
     struct node * next;
 };
-// typedef struct node node_t;
 
 
 void print_list(node * head) 
